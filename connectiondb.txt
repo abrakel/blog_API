@@ -1,0 +1,6 @@
+username: abravokeller
+password: MbVNv85GPGRGJbG2
+IP Access List: 186.189.95.137/32
+
+connection string:
+mongodb+srv://abravokeller:MbVNv85GPGRGJbG2@cluster0.cw7yuhj.mongodb.net/?retryWrites=true&w=majority
