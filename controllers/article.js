@@ -1,6 +1,7 @@
 const {validation} = require('../helpers/validation.js');
 const Article = require('../models/Article.js');
 const fs = require('fs')
+const path = require('path');
 
 
 const controller = {
@@ -172,7 +173,7 @@ const controller = {
     }
   },
 
-  upload: (req, res) => {
+  upload: async (req, res) => {
     if(!req.file && !req.files){
       return res.status(404).json({
         status: 'error',
@@ -191,15 +192,74 @@ const controller = {
         });
       })
     } else {
-      return res.status(200).json({
-        status: 'success',
-        fileSplit,
-        file: req.file,
-        message: 'imagen subida'
-      });
+      let id = req.params.id;  
+      try{
+        const article = await Article.findOneAndUpdate({_id: id}, {image: req.file.filename}, {new: true});
+        if(!article){
+          return res.status(404).json({
+            status: 'error',
+            message: 'El articulo no existe'
+          });
+        }
+        return res.status(200).json({
+          status: 'Success',
+          message: 'imagen del articulo actualizada',
+          article
+        })
+      }
+      catch (error){
+        return res.status(404).json({
+          status: 'error',
+          message: 'Error al actualizar la imagen del articulo'
+        });
+      }
     }
     
   }, 
+
+  image: (req, res) => {
+    let file = req. params.file;
+    let physicalPath = './imagenes/articulos/'+file;
+    if (fs.existsSync(physicalPath)) {
+      return res.sendFile(path.resolve(physicalPath));
+    } else {
+      return res.status(404).json({
+        status: 'error',
+        message: 'La imagen no existe',
+        file,
+        physicalPath
+      });
+    }
+  },
+
+  search: async(req, res) => {
+    let search = req.params.files;
+    console.log(search)
+    try{
+    const findSearch = await Article.find({'$or': [
+      {'title': {'$regex': search, '$options': 'i'}},
+      {'content': {'$regex': search, '$options': 'i'}}
+    ]})
+    .sort({date: -1})
+    if(findSearch && findSearch.length > 0){
+      return res.status(200).json({
+        status: 'Success',
+        message: 'archivo encontrado',
+        findSearch,
+      })
+    } else {
+      return res.status(404).json({
+        status: 'Fail',
+        message: 'No ha encontrado el archivo',
+      })
+    }
+    } catch (error){
+      return res.status(404).json({
+        status: 'error',
+        message: 'Error al buscar archivos',
+      })
+    }
+  },
 }
 
 module.exports = controller;
