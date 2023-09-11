@@ -19,7 +19,7 @@ app.use(express.json()); //recibir datos con content-type app/json
 app.use(express.urlencoded({extended: true})); //Recibiendo datos con form-urlencoded
 
 //Cargar las rutas
-app.use('/api', routesArticle)
+app.use('/', routesArticle)
 
 //Crear servidor y escuchar peticiones http
 app.listen(PORT, () => {
