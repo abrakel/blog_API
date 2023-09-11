@@ -3,13 +3,13 @@ const express = require ('express');
 const cors = require('cors');
 //Importar rutas desde Routes
 const routesArticle = require('./routes/article.js');
+const { PORT } = require('../config');
 
 //conexión a la bd
 connection();
 
 //crear servidor node
 const app = express();
-const PORT = 3000
 
 //configurar cors
 app.use(cors());
