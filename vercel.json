@@ -5,32 +5,32 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)"
+      "source": "/(.*)"
     },
     {
-      "src": "/create(.*)"
+      "source": "/create"
     },
     {
-      "src": "/articles(.*)",
-      "dest": "/articles/$1"
+      "source": "/articles/:ultimos?",
+      "destination": "/articles"
     },
     {
-      "src": "/article(.*)",
-      "dest": "/article/$1"
+      "source": "/article/:id",
+      "destination": "/article"
     },
     {
-      "src": "/upload(.*)",
-      "dest": "/upload/$1"
+      "source": "/upload/:id(.*)",
+      "destination": "/upload"
     },
     {
-      "src": "/image(.*)",
-      "dest": "/image/$1"
+      "source": "/image/:file(.*)",
+      "destination": "/image"
     },
     {
-      "src": "/search(.*)",
-      "dest": "/search/$1"
+      "source": "/search/:files(.*)",
+      "destination": "/search"
     }
   ]
 }
