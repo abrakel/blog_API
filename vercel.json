@@ -14,23 +14,23 @@
     },
     {
       "source": "/articles/:ultimos?",
-      "destination": "/articles"
+      "destination": "../routes/article.js"
     },
     {
       "source": "/article/:id",
-      "destination": "/article"
+      "destination": "../routes/article.js"
     },
     {
       "source": "/upload/:id",
-      "destination": "/upload"
+      "destination": "../routes/article.js"
     },
     {
       "source": "/image/:file",
-      "destination": "/image"
+      "destination": "../routes/article.js"
     },
     {
       "source": "/search/:files",
-      "destination": "/search"
+      "destination": "../routes/article.js"
     }
   ]
 }
