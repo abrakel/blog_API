@@ -20,10 +20,6 @@ app.use(express.urlencoded({extended: true})); //Recibiendo datos con form-urlen
 
 //Cargar las rutas
 app.use('/', routesArticle)
-app.get('/', (req, res) => {
-  res.send('bobbyhadz.com');
-});
-
 
 //Crear servidor y escuchar peticiones http
 app.listen(PORT, () => {

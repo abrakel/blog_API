@@ -14,11 +14,14 @@ const storage = multer.diskStorage({
 
 const uploadImg = multer({storage: storage})
 
-//rutas de prueba
+/* //rutas de prueba
 router.get('/properties', properties);
-router.get('/testing1', testing1);
+router.get('/testing1', testing1); */
 
 //Ruta Util
+router.get('/', (req, res) => {
+  res.send("pagina inicio API");
+});
 router.post('/create', create);
 router.get('/articles/:ultimos?', getArticles);
 router.get('/article/:id', getArticle);

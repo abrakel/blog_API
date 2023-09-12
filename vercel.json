@@ -7,8 +7,30 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/(.*)"
+    },
+    {
+      "src": "/create(.*)"
+    },
+    {
+      "src": "/articles(.*)",
+      "dest": "/articles/$1"
+    },
+    {
+      "src": "/article(.*)",
+      "dest": "/article/$1"
+    },
+    {
+      "src": "/upload(.*)",
+      "dest": "/upload/$1"
+    },
+    {
+      "src": "/image(.*)",
+      "dest": "/image/$1"
+    },
+    {
+      "src": "/search(.*)",
+      "dest": "/search/$1"
     }
   ]
 }
