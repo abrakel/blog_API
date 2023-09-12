@@ -7,10 +7,12 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)"
+      "source": "/(.*)",
+      "destination": "../routes/article.js"
     },
     {
-      "source": "/create"
+      "source": "/create",
+      "destination": "../routes/article.js"
     },
     {
       "source": "/articles/:ultimos?",
