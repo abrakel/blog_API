@@ -34,5 +34,6 @@
       "source": "/search/:files",
       "destination": "../routes/article.js"
     }
-  ]
+  ],
+  "installCommand": "npm install"
 }
