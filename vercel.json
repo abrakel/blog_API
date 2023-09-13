@@ -7,8 +7,32 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
+      "source": "/(.*)",
+      "destination": "../routes/article.js"
+    },
+    {
+      "source": "/create",
+      "destination": "../routes/article.js"
+    },
+    {
+      "source": "/articles/:ultimos?",
+      "destination": "../routes/article.js"
+    },
+    {
+      "source": "/article/:id",
+      "destination": "../routes/article.js"
+    },
+    {
+      "source": "/upload/:id",
+      "destination": "../routes/article.js"
+    },
+    {
+      "source": "/image/:file",
+      "destination": "../routes/article.js"
+    },
+    {
+      "source": "/search/:files",
+      "destination": "../routes/article.js"
     }
   ],
   "installCommand": "npm install"
