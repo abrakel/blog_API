@@ -8,7 +8,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/git "
+      "destination": "../routes/article.js"
     }
   ],
   "installCommand": "npm install"
