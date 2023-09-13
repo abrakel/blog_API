@@ -1,9 +1,9 @@
-const {connection} = require('../database/connection.js');
+const {connection} = require('./database/connection.js');
 const express = require ('express');
 const cors = require('cors');
 //Importar rutas desde Routes
-const routesArticle = require('../routes/article.js');
-const { PORT } = require('../config.js');
+const routesArticle = require('./routes/article.js');
+const { PORT } = require('./config.js');
 
 //conexión a la bd
 connection();
